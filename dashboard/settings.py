@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chatbot',
+    'chatbot',  # your app
 ]
 
 MIDDLEWARE = [
@@ -33,7 +33,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ai_chatbot_dashboard.urls'
+# ✅ FIXED: Correct Django project name
+ROOT_URLCONF = 'dashboard.urls'
 
 TEMPLATES = [
     {
@@ -51,7 +52,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ai_chatbot_dashboard.wsgi.application'
+# ✅ FIXED: Correct WSGI reference
+WSGI_APPLICATION = 'dashboard.wsgi.application'
 
 DATABASES = {
     'default': {
