@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session History</title>
+</head>
+<body>
+    <h2>Previous Sessions</h2>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                Session {{ session.id }}: {{ session.start_time }}
+                <a href="{% url 'feedback' session.id %}">Give Feedback</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
