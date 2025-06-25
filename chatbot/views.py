@@ -101,10 +101,17 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("chat")
+
+            # 🔧 Create or get a session
+            request.user = user  # Needed so get_or_create_session works with user
+            chat_session = get_or_create_session(request)
+
+            # ✅ Redirect to chat with session_id
+            return redirect("chat", session_id=chat_session.session_id)
         else:
             messages.error(request, "Invalid username or password")
     return render(request, "chatbot/login.html")
+
 
 def register_view(request):
     if request.method == "POST":
