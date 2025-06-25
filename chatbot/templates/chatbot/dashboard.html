@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Chat Sessions</h2>
+<ul>
+  {% for session in sessions %}
+    <li>
+      <a href="{% url 'chatbot:session_detail' session.session_id %}">
+        Session {{ forloop.counter }} — {{ session.created_at|date:"Y-m-d H:i" }}
+      </a>
+    </li>
+  {% empty %}
+    <li>No sessions yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
