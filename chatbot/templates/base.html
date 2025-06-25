@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        a { text-decoration: none; color: steelblue; }
+    </style>
+</head>
+<body>
+    <h1>🤖 AI Chatbot</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}{% endblock %}
+</body>
+</html>
