@@ -85,3 +85,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ✅ Important for login-required views
+LOGIN_URL = '/login/'  # or '/chatbot/login/' if you're using namespace
+LOGIN_REDIRECT_URL = '/dashboard/'  # After successful login
+LOGOUT_REDIRECT_URL = '/login/'  # After logou
