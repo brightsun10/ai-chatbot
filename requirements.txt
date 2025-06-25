@@ -1,6 +1,6 @@
-django
-openai
-dj-database-url
+Django>=4.2
 psycopg2-binary
+openai
 python-dotenv
 gunicorn
+whitenoise
