@@ -2,18 +2,17 @@
 <html>
 <head>
     <title>AI Chatbot Dashboard</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        a { text-decoration: none; color: steelblue; }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>🤖 AI Chatbot</h1>
     {% if messages %}
+    <ul>
         {% for message in messages %}
-            <div>{{ message }}</div>
+        <li style="color:red;">{{ message }}</li>
         {% endfor %}
+    </ul>
     {% endif %}
+
     {% block content %}{% endblock %}
 </body>
 </html>
