@@ -87,3 +87,41 @@ def submit_feedback(request):
         )
         return JsonResponse({'status': 'success'})
     return JsonResponse({'error': 'Invalid request'}, status=405)
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("chat")
+        else:
+            messages.error(request, "Invalid username or password")
+    return render(request, "chatbot/login.html")
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists")
+        else:
+            User.objects.create_user(username=username, password=password)
+            messages.success(request, "Registration successful. Please log in.")
+            return redirect("login")
+    return render(request, "chatbot/register.html")
+
+@login_required
+def chat_view(request):
+    return render(request, "chatbot/chat.html", {"username": request.user.username})
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
