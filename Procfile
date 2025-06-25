@@ -1,1 +1,1 @@
-python manage.py migrate && gunicorn dashboard.wsgi
+web: python manage.py migrate && gunicorn dashboard.wsgi
