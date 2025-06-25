@@ -34,7 +34,7 @@ MIDDLEWARE = [
 ]
 
 # ✅ FIXED: Correct Django project name
-ROOT_URLCONF = 'dashboard.urls'
+ROOT_URLCONF = 'chatbot.urls'
 
 TEMPLATES = [
     {
