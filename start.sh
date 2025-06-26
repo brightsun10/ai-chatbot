@@ -1,5 +1,4 @@
 #!/bin/bash
-[ ! -x "$0" ] && chmod +x "$0"
 python manage.py makemigrations chatbot
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
