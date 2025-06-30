@@ -113,8 +113,6 @@ MIT License. Feel free to use and modify it for your own projects.
 
 ## Author
 
-Nithin P
-
-nithinpsea10@gmail.com
+Made with ❤️ by Nithin P (brightsun10)
 
 ---
